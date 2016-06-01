@@ -115,7 +115,6 @@ if (l1.size()>=1)
         
         list.add(new Proyecto(ar_objeto[0].toString(), ar_objeto[1].toString(), ar_objeto[2].toString(), ar_objeto[3].toString()));
    
-        System.out.println(""+ar_objeto[3].toString()+"ss");
     }
 } 
 

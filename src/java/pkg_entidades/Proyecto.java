@@ -25,11 +25,8 @@ public Proyecto(String pro_id, String dep_id, String lug_id, String pro_nombre) 
         this.pro_nombre = pro_nombre;
     }
 
-    public Proyecto() {
-    }
-
     public String getPro_id() {
-        return this.pro_id;
+        return pro_id;
     }
 
     public void setPro_id(String pro_id) {
@@ -45,7 +42,7 @@ public Proyecto(String pro_id, String dep_id, String lug_id, String pro_nombre) 
     }
 
     public String getLug_id() {
-        return this.lug_id;
+        return lug_id;
     }
 
     public void setLug_id(String lug_id) {
@@ -75,6 +72,8 @@ public Proyecto(String pro_id, String dep_id, String lug_id, String pro_nombre) 
     public void setListas(ArrayList<Proyecto> listas) {
         this.listas = listas;
     }
+
+   
 
     
 }
