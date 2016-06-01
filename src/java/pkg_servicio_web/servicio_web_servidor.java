@@ -114,7 +114,7 @@ if (l1.size()>=1)
         Object [] ar_objeto=(Object [])(l1.get(i));
         
         list.add(new Proyecto(ar_objeto[0].toString(), ar_objeto[1].toString(), ar_objeto[2].toString(), ar_objeto[3].toString()));
-   
+        System.out.println(""+list.get(i).getPro_nombre());
     }
 } 
 
