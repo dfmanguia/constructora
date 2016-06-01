@@ -5,6 +5,7 @@
  */
 package pkg_servicio_web;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -13,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import pkg_entidades.Proyecto;
 
 /**
  *
@@ -70,6 +72,43 @@ Object [] ar_objeto=(Object [])(l1.get(0)); String ls_nombre=ar_objeto[1].toStri
 } else {
 return null; }
 }
-    
-    
+ /*
+public ArrayList buscartodo( ) {
+String sql ="select * from proyecto"; Query qe=em1.createNativeQuery(sql);
+List l1=qe.getResultList();
+ ArrayList<Proyecto> lista= new ArrayList<>();   
+int a=0,b=1,c=2,d=3;
+if (l1.size()>=1)
+{
+//Object [] ar_objeto=(Object [])(l1.get(0)); String ls_nombre=ar_objeto[1].toString(); return ls_nombre;
+    for (int i = 0; i < l1.size(); i++) {
+        Object [] ar_objeto=(Object [])(l1.get(i));
+        
+        lista.add(new Proyecto(ar_objeto[0].toString(), ar_objeto[1].toString(), ar_objeto[2].toString(), ar_objeto[3].toString()));
+   
+        System.out.println(""+ar_objeto[3].toString()+"ss");
+    }
+} 
+
+else {
+return null; }
+
+return lista;
+}
+    */
+
+public List buscartodo( ) {
+String sql ="select * from proyecto"; Query qe=em1.createNativeQuery(sql);
+List l1=qe.getResultList();
+ 
+if (l1.size()>=1)
+{
+return l1;
+} 
+
+else {
+return null; }
+
+
+}
 }
