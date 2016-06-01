@@ -5,6 +5,9 @@
  */
 package pkg_entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author diego
@@ -12,19 +15,21 @@ package pkg_entidades;
 public class Proyecto {
     
     String pro_id,dep_id,lug_id,pro_nombre;
+    List<Proyecto> lista;
+    ArrayList<Proyecto> listas;
 
-    public Proyecto() {
-    }
-
-    public Proyecto(String pro_id, String dep_id, String lug_id, String pro_nombre) {
+public Proyecto(String pro_id, String dep_id, String lug_id, String pro_nombre) {
         this.pro_id = pro_id;
         this.dep_id = dep_id;
         this.lug_id = lug_id;
         this.pro_nombre = pro_nombre;
     }
 
+    public Proyecto() {
+    }
+
     public String getPro_id() {
-        return pro_id;
+        return this.pro_id;
     }
 
     public void setPro_id(String pro_id) {
@@ -40,7 +45,7 @@ public class Proyecto {
     }
 
     public String getLug_id() {
-        return lug_id;
+        return this.lug_id;
     }
 
     public void setLug_id(String lug_id) {
@@ -54,6 +59,22 @@ public class Proyecto {
     public void setPro_nombre(String pro_nombre) {
         this.pro_nombre = pro_nombre;
     }
-    
+
+    public List<Proyecto> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<Proyecto> lista) {
+        this.lista = lista;
+    }
+
+    public ArrayList<Proyecto> getListas() {
+        return listas;
+    }
+
+    public void setListas(ArrayList<Proyecto> listas) {
+        this.listas = listas;
+    }
+
     
 }

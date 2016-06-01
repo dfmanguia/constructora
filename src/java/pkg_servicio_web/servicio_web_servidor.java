@@ -7,6 +7,10 @@ package pkg_servicio_web;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
+import javax.inject.Named;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -14,14 +18,39 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.ws.rs.core.GenericEntity;
+import javax.ws.rs.core.Response;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import pkg_entidades.Proyecto;
-
+@XmlSeeAlso({pkg_entidades.Proyecto.class})
 /**
  *
  * @author diego
  */
+
+@ManagedBean
+@RequestScoped
+
 @WebService(serviceName = "servicio_web_servidor")
 public class servicio_web_servidor {
+    
+    Proyecto proyecto;
+    ArrayList<Proyecto> list;
+    public Proyecto getProyecto() {
+        return this.proyecto;
+    }
+
+    public void setProyecto(Proyecto proyecto) {
+        this.proyecto = proyecto;
+    }
+
+    public ArrayList<Proyecto> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<Proyecto> list) {
+        this.list = list;
+    }
 
     
 
@@ -72,11 +101,11 @@ Object [] ar_objeto=(Object [])(l1.get(0)); String ls_nombre=ar_objeto[1].toStri
 } else {
 return null; }
 }
- /*
-public ArrayList buscartodo( ) {
+
+public ArrayList buscartodoooo( ) {
 String sql ="select * from proyecto"; Query qe=em1.createNativeQuery(sql);
-List l1=qe.getResultList();
- ArrayList<Proyecto> lista= new ArrayList<>();   
+List l1=qe.getResultList(); 
+list=new ArrayList<>();
 int a=0,b=1,c=2,d=3;
 if (l1.size()>=1)
 {
@@ -84,7 +113,7 @@ if (l1.size()>=1)
     for (int i = 0; i < l1.size(); i++) {
         Object [] ar_objeto=(Object [])(l1.get(i));
         
-        lista.add(new Proyecto(ar_objeto[0].toString(), ar_objeto[1].toString(), ar_objeto[2].toString(), ar_objeto[3].toString()));
+        list.add(new Proyecto(ar_objeto[0].toString(), ar_objeto[1].toString(), ar_objeto[2].toString(), ar_objeto[3].toString()));
    
         System.out.println(""+ar_objeto[3].toString()+"ss");
     }
@@ -93,22 +122,8 @@ if (l1.size()>=1)
 else {
 return null; }
 
-return lista;
+return list;
 }
-    */
+  
 
-public List buscartodo( ) {
-String sql ="select * from proyecto"; Query qe=em1.createNativeQuery(sql);
-List l1=qe.getResultList();
- 
-if (l1.size()>=1)
-{
-return l1;
-} 
-
-else {
-return null; }
-
-
-}
 }
