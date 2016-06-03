@@ -92,12 +92,19 @@ em1.getTransaction().commit(); return 1;
 } else {
 em1.getTransaction().rollback(); return 0;
 } }
-public String buscar(@WebParam(name = "pro_id") String pro_id ) {
-String sql ="select * from proyecto where pro_id="+"'"+pro_id+"'"; Query qe=em1.createNativeQuery(sql);
+
+
+@WebMethod(operationName = "buscar")
+public String buscar(@WebParam(name = "pro_nombre") String pro_nombre) {
+String sql ="select * from proyecto where pro_nombre='"+pro_nombre+"'"; 
+Query qe=em1.createNativeQuery(sql);
 List l1=qe.getResultList();
+    //System.out.println("El tamaño de la lista es "+l1.size());
 if (l1.size()>=1)
 {
-Object [] ar_objeto=(Object [])(l1.get(0)); String ls_nombre=ar_objeto[1].toString(); return ls_nombre;
+Object [] ar_objeto=(Object [])(l1.get(0)); 
+String ls_nombre=ar_objeto[2].toString();
+return ls_nombre;
 } else {
 return null; }
 }
@@ -122,6 +129,21 @@ else {
 return null; }
 
 return list;
+}
+
+@WebMethod(operationName = "buscarLugar")
+public String buscarLugar(@WebParam(name = "lug_id") String lug_id) {
+String sql ="select * from lugar where lug_id='"+lug_id+"'"; 
+Query qe=em1.createNativeQuery(sql);
+List l1=qe.getResultList();
+    //System.out.println("El tamaño de la lista es "+l1.size());
+if (l1.size()>=1)
+{
+Object [] ar_objeto=(Object [])(l1.get(0)); 
+String ls_nombre=ar_objeto[1].toString();
+return ls_nombre;
+} else {
+return null; }
 }
   
 
